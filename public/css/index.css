@@ -1,0 +1,206 @@
+@import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body {
+  font-size: 16px;
+  height: 700px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1{
+  font-weight: normal;
+  font-size: 4em;
+  font-family: 'Raleway', sans-serif;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 500px;
+  text-align: center;
+
+}
+
+/* Animation webkit */
+@-webkit-keyframes myfirst
+{
+  0% {margin-left: -235px}
+  90% {margin-left: 100%;}
+  100% {margin-left: 100%;}
+}
+
+/* Animation */
+@keyframes myfirst
+{
+  0% {margin-left: -235px}
+  70% {margin-left: 100%;}
+  100% {margin-left: 100%;}
+}
+
+.fish{
+  background-image: url('http://www.geertjanhendriks.nl/codepen/form/fish.png');
+  width: 235px;
+  height: 104px;
+  margin-left: -235px;
+  position: absolute; 
+  animation: myfirst 24s;
+  -webkit-animation: myfirst 24s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+}
+
+#fish{
+  top: 120px;
+}
+
+#fish2{
+  top: 260px;
+  animation-delay: 12s;
+  -webkit-animation-delay: 12s;
+}
+
+
+header{
+  height: 160px;
+  background: url('http://www.geertjanhendriks.nl/codepen/form/golf.png') repeat-x bottom;
+}
+
+#form{
+  height: 100%; 
+  background-color: #98d4f3;
+  overflow: hidden;
+  position: relative;
+  
+}
+form{
+  margin: 0 auto;
+  width: 500px;
+  padding-top: 40px;
+  position: relative;
+  
+  
+}
+
+#open {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding:1px;
+  margin: 0px auto 0;
+  position: relative;
+  top: 30%;  
+}
+
+#close {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px;
+  margin: 16px auto 0;
+  background: #4caf50;
+  color: white;
+  position: relative;
+  top: 30%;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background-image:url('/img/00.jpg');
+  color: #555;
+  width: 300px;
+  padding: 40px;
+  border-radius: 4px;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 2;
+  transition: 0.4s;
+}
+
+#modal p {
+  margin: 0 0 20px;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  display: none;
+}
+
+#body {
+    background-position:center bottom;
+    background-image:url(‘/img/00.jpg’);
+    background-position: top left
+}
+
+.homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepagetitle {
+  display: flex;
+  min-width: 375px;
+  padding: 25px 50px;
+  justify-content: space-between;
+  background-color:whitesmoke;
+  border: solid 1px skyblue;
+  box-shadow:3px 3px 10px lightgray;
+}
+
+.homepagetitle > h3 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.homepagetitle > p {
+  padding-top: 3px;
+  margin-bottom: 0;
+}
+
+.border2{
+  border: double 5px red;
+}
+
+
+.border5{
+  border-bottom:1px solid gray;
+}
+
+.pic {
+   background-image:url('/img/77.jpg');
+   background-position: center;
+   background-size: cover;
+}
+
+.card-body {
+   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.listsap{
+  
+  line-height: 1.5;
+  padding: 0.5em 0;
+  color: red;
+  border-bottom:2px dashed #ccc;
+}
