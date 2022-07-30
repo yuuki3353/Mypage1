@@ -17,7 +17,7 @@
                     </li>
                     @if(Auth::user()->switches_id ==1)
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href='/posts/create'>追加・編集</a>
+                        <a class="nav-link active" aria-current="page" href='/posts/create'>✅追加・編集</a>
                     </li>
                     @else
                     @endif
@@ -50,7 +50,7 @@
                             </div>
                             <div class="formgrop" id="title-form">
                                 <label for="title">Title</label>
-                                <input type="title" id="title" name="mail[title]" placeholder="タイトルを記載して下さい。" value="{{ old('mail.title') }}"/>>
+                                <input type="title" id="title" name="mail[title]" placeholder="タイトルを記載して下さい。" value="{{ old('mail.title') }}"/>
                                 <p class="title__error" style="color:red">{{ $errors->first('mail.title') }}</p>
                                 <input name="mail[user_id]" type="hidden" value={{Auth::id()}} />
                             </div>

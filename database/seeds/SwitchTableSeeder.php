@@ -11,10 +11,11 @@ class SwitchTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('switches')->insert([
+        DB::table('switches')->insert([[
                 'name'=>'投稿者',
             ],[
                 'name'=>'閲覧者',
-            ]);
+            ]],
+                );
     }
 }

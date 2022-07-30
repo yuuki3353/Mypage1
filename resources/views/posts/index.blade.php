@@ -13,7 +13,7 @@
                         <div>
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href='/posts/index'>ホーム</a>
+                                    <a class="nav-link active" aria-current="page" href='/posts/index'>✅ホーム</a>
                                     
                                 </li>
                                 <li class="nav-item">
@@ -25,7 +25,7 @@
                                 {{--投稿者のみ追加編集が可能--}}
                                 @if(Auth::user()->switches_id ==1)
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href='/posts/create'>追加・編集</a>
+                                    <a class="nav-link" href='/posts/create'>追加・編集</a>
                                 </li>
                         
                                 @endif
@@ -67,7 +67,6 @@
                         </div>
                     </div>
                 </nav>
-                <br>
                 
                 <link rel="stylesheet" href ="{{asset('css/index.css')}}">
                 <link rel="stylesheet" href ="{{asset('js/index.js')}}">
@@ -84,12 +83,13 @@
                 </header>    
             
                 <div id="form">
-                    <div class="fish" id="fish"></div>
-                    <div class="fish" id="fish2"></div>
-                    <form id="waterform" action="/posts" method="POST">
-                        <div class="row">
+                <div class="fish" id="fish"></div>
+                <div class="fish" id="fish2"></div>
+                <form id="waterform" action="/posts" method="POST">
+                    
+                    <div class="row">
                         <div class="col-6">
-                            <div class="card border2" style="width: 25rem;">
+                            <div class="card border2" style="width:25rem;">
                                 <div class="pic">
                                     <div class="card-body">
                                         <h5 class="card-title border5">学校連絡</h5>
@@ -97,12 +97,12 @@
                                             @if(Auth::user()->switches_id ==1)
                                             @csrf
                                             [<a href='/posts/create'>学校連絡追加</a>] 
-                                            @endif(Auth::user()->id ==2)
+                                            @endif(Auth::user()->switches_id ==2)
                                             [<a href='/posts/school'>ページ確認</a>]
                                             <p class="listsap">
                                             @foreach ($schoolMails as $schoolmail)
                                                 <form action="/posts/{{ $schoolmail->id }}" id="form_{{ $schoolmail->id }}" method="post" style="display:inline">
-                                                    @if(Auth::user()->id ==1)
+                                                    @if(Auth::user()->switches_id ==1)
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit">削除</button>
@@ -121,34 +121,33 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="card border2" style="width: 25rem;">
-                              <div class="pic">
-                                <div class="card-body">
-                                    <h5 class="card-title border5">{{Auth::user()->name}}様宛て連絡</h5>
-                                    <div class='posts'>
-                                        @if(Auth::user()->id ==1)
-                                        @csrf
-                                        <a href='/posts/create'>{{Auth::user()->name}}様宛て連絡追加</a>
-                                        @endif(Auth::user()->id ==2)
-                                        
-                                        [<a href='/posts/guardian'>ページ確認</a>]
-                                        @foreach($parentMails as $parentMail)
-                                            <form action="/posts/{{ $parentMail->id }}" id="form_{{ $parentMail->id }}" method="post" style="display:inline">
-                                            @if(Auth::user()->id ==1)
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit">削除</button>
-                                                @endif
-                                                <div class='post'>
-                                                    <h3 class='title'>{{ $parentMail->title }}</h3>
-                                                    <a href="/mails/{{ $parentMail->id }}">{{ $parentMail->title}}> </a>
-                                                    <p>{{date('Y年m月d日', strtotime($parentMail->created_at))}}</p>
-                                                    
-                                                </div>
-                                            </form>
+                            <div class="card border2" style="width:25rem;">
+                                <div class="pic">
+                                    <div class="card-body">
+                                        <h5 class="card-title border5">{{Auth::user()->name}}様宛て連絡</h5>
+                                        <div class='posts'>
+                                            @if(Auth::user()->switches_id ==1)
+                                            @csrf
+                                            <a href='/posts/create'>{{Auth::user()->name}}様宛て連絡追加</a>
+                                            @endif(Auth::user()->switches_id ==2)
+                                            
+                                            [<a href='/posts/guardian'>ページ確認</a>]
+                                            @foreach($parentMails as $parentMail)
+                                                <form action="/posts/{{ $parentMail->id }}" id="form_{{ $parentMail->id }}" method="post" style="display:inline">
+                                                @if(Auth::user()->switches_id ==1)
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">削除</button>
+                                                    @endif
+                                                    <div class='post'>
+                                                        <h3 class='title'>{{ $parentMail->title }}</h3>
+                                                        <a href="/mails/{{ $parentMail->id }}">{{ $parentMail->title}}> </a>
+                                                        <p>{{date('Y年m月d日', strtotime($parentMail->created_at))}}</p>
+                                                    </div>
+                                                </form>
                                             @endforeach
+                                        </div>
                                     </div>
-                                 </div>
                                 </div>
                             </div>
                         </div>    
